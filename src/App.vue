@@ -13,8 +13,7 @@ export default {
   },
   watch: {
     $route: function () {
-      // this.isLoggedIn = !!localStorage.jwt;
-      localStorage.setItem("flashMessage", "Somewhere New");
+      this.isLoggedIn = !!localStorage.jwt;
       this.flashMessage = localStorage.getItem("flashMessage");
       this.flashMessage = localStorage.removeItem("flashMessage");
     },
@@ -42,9 +41,9 @@ export default {
           <li><a class="nav-link" href="/movies">Movies</a></li>
           <li><a class="nav-link" href="/movies/new">New Movies</a></li>
           <!-- <li><a class="nav-link" href="/movies/new">Edit Movies</a></li> -->
-          <!-- <li><a v-if="!isLoggedIn" class="nav-link" href="/signup">Sign Up</a></li> -->
-          <!-- <li><a v-if="!isLoggedIn" class="nav-link" href="/login">Sign In</a></li> -->
-          <!-- <li><a v-if="isLoggedIn" class="nav-link" href="/logout">Sign Out</a></li> -->
+          <li><a v-if="!isLoggedIn" class="nav-link" href="/signup">Sign Up</a></li>
+          <li><a v-if="!isLoggedIn" class="nav-link" href="/login">Sign In</a></li>
+          <li><a v-if="isLoggedIn" class="nav-link" href="/logout">Sign Out</a></li>
         </ul>
         <form class="d-flex" role="search">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
