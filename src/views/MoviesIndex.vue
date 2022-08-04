@@ -25,6 +25,21 @@ export default {
 <template>
   <div class="container">
     <h2>{{ message }}</h2>
+    <div>
+      <form class="d-flex" role="search">
+        <input
+          v-model="titleFilter"
+          list="titles"
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+        />
+        <datalist id="titles">
+          <option v-for="movie in movies" v-bind:key="movie.id">{{ movie.title }}</option>
+        </datalist>
+      </form>
+    </div>
     <div
       v-for="movie in movies"
       v-bind:key="movie.id"

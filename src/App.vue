@@ -13,7 +13,8 @@ export default {
   },
   watch: {
     $route: function () {
-      this.isLoggedIn = !!localStorage.jwt;
+      // this.isLoggedIn = !!localStorage.jwt;
+      localStorage.setItem("flashMessage", "Somewhere New");
       this.flashMessage = localStorage.getItem("flashMessage");
       this.flashMessage = localStorage.removeItem("flashMessage");
     },
